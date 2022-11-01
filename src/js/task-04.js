@@ -3,10 +3,10 @@ const incrementButton = document.querySelector('button[data-action="increment"]'
 const showValue = document.querySelector('#value');
 let counterValue = 0;
 
-const targetButtonClickHandler = (e) => {
-    counterValue = +e.target.innerText;
-    showValue.innerHTML = +showValue.innerHTML + counterValue;
+const targetButtonClickHandler = (val) => {
+    counterValue -= val;
+    showValue.innerHTML = counterValue;
 };
 
-decrementButton.addEventListener('click', targetButtonClickHandler);
-incrementButton.addEventListener('click', targetButtonClickHandler);
+decrementButton.addEventListener('click', function (){targetButtonClickHandler(1);});
+incrementButton.addEventListener('click', function (){targetButtonClickHandler(-1);});
